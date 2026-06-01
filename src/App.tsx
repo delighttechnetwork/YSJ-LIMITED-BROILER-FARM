@@ -288,7 +288,7 @@ export default function App() {
         ========================================
       */}
       <aside 
-        className={`fixed inset-y-0 left-0 w-64 h-[100dvh] md:h-screen bg-slate-900 text-slate-300 border-r border-slate-850 flex flex-col justify-between z-50 transform md:transform-none transition-transform duration-300 ease-in-out md:flex md:sticky md:top-0 shrink-0 print:hidden ${
+        className={`fixed inset-y-0 left-0 w-64 h-[100dvh] md:h-screen bg-slate-900 text-slate-300 border-r border-slate-850 flex flex-col z-50 transform md:transform-none transition-transform duration-300 ease-in-out md:flex md:sticky md:top-0 shrink-0 print:hidden ${
           mobileMenuOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
         }`}
       >
@@ -408,22 +408,22 @@ export default function App() {
               </div>
             )}
           </nav>
-        </div>
 
-        {/* Bottom Sidebar: Log Out Control */}
-        <div className="p-4 border-t border-slate-850 shrink-0 bg-slate-950/10">
-          <button 
-            id="sidebar-btn-logout"
-            onClick={handleLogout}
-            className="w-full py-2 px-3 bg-slate-850 hover:bg-rose-950/30 hover:text-rose-405 border border-slate-700 hover:border-rose-900/30 text-slate-400 rounded-lg text-xs font-semibold transition flex items-center justify-center gap-2 cursor-pointer shadow-inner"
-            title="Log out from YSJ Limited"
-          >
-            <LogOut size={13} />
-            <span>Sign Out Session</span>
-          </button>
-          
-          <div className="mt-3 text-[9px] text-center text-slate-500 block font-mono">
-            YSJ Poultry Farm © 2026
+          {/* Bottom Sidebar: Log Out Control (Now nested inside the scrollable container with mt-auto, ensuring visibility even if bottom of viewport is clipped on mobile) */}
+          <div className="p-4 border-t border-slate-850 shrink-0 bg-slate-950/10 mt-auto">
+            <button 
+              id="sidebar-btn-logout"
+              onClick={handleLogout}
+              className="w-full py-2 px-3 bg-slate-850 hover:bg-rose-950/30 hover:text-rose-405 border border-slate-700 hover:border-rose-900/30 text-slate-400 rounded-lg text-xs font-semibold transition flex items-center justify-center gap-2 cursor-pointer shadow-inner"
+              title="Log out from YSJ Limited"
+            >
+              <LogOut size={13} />
+              <span>Sign Out Session</span>
+            </button>
+            
+            <div className="mt-3 text-[9px] text-center text-slate-500 block font-mono">
+              YSJ Poultry Farm © 2026
+            </div>
           </div>
         </div>
       </aside>
