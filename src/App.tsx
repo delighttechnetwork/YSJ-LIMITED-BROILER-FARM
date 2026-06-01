@@ -288,7 +288,7 @@ export default function App() {
         ========================================
       */}
       <aside 
-        className={`fixed inset-y-0 left-0 w-64 h-[100dvh] md:h-screen bg-slate-900 text-slate-300 border-r border-slate-850 flex flex-col justify-between z-50 transform md:transform-none transition-transform duration-300 ease-in-out md:static md:flex md:sticky md:top-0 shrink-0 print:hidden ${
+        className={`fixed inset-y-0 left-0 w-64 h-[100dvh] md:h-screen bg-slate-900 text-slate-300 border-r border-slate-850 flex flex-col justify-between z-50 transform md:transform-none transition-transform duration-300 ease-in-out md:flex md:sticky md:top-0 shrink-0 print:hidden ${
           mobileMenuOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
         }`}
       >
