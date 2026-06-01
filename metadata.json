@@ -1,0 +1,10 @@
+{
+  "name": "Remix: Remix: YSJ Limited Broiler Farm",
+  "description": "Enterprise Poultry Farm Management Dashboard with role-based access control, daily reports, live comments, weekly automated stats, and senior consultant executive insights.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

@@ -1,0 +1,44 @@
+import React from 'react';
+
+interface ChickenLogoProps {
+  className?: string;
+}
+
+export function ChickenLogo({ className = "h-8 w-8 text-white" }: ChickenLogoProps) {
+  return (
+    <svg 
+      viewBox="0 0 100 100" 
+      className={className} 
+      fill="none" 
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      {/* Comb (Red) */}
+      <path 
+        d="M30,32 C30,15 42,8 50,20 C56,8 68,10 70,22 C74,15 84,18 82,32" 
+        fill="#EF4444" 
+      />
+      
+      {/* Head Silhouette (defaults to current text color) */}
+      <path 
+        d="M30,45 C30,32 42,32 68,32 C75,32 80,40 80,52 C80,68 65,82 45,82 C35,82 30,72 30,52 Z" 
+        fill="currentColor" 
+      />
+      
+      {/* Wattle (Red - hanging part below beak) */}
+      <path 
+        d="M68,58 C74,70 65,74 60,71 C58,66 60,59 68,58 Z" 
+        fill="#EF4444" 
+      />
+      
+      {/* Beak (Golden Yellow) */}
+      <path 
+        d="M78,45 L92,53 L76,61 Z" 
+        fill="#F59E0B" 
+      />
+      
+      {/* Eye (Dark Slate / Deep Navy) */}
+      <circle cx="58" cy="45" r="4.5" fill="#0F172A" />
+      <circle cx="59.2" cy="43.5" r="1.5" fill="#FFFFFF" /> {/* Eye highlight */}
+    </svg>
+  );
+}

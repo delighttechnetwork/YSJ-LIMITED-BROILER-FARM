@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+/* 
+  ========================================
+  CROSS-BROWSER HIGH-POLISH PRINT STYLES
+  ========================================
+*/
+@media print {
+  /* 1. Reset root scrolling context to prevent viewport and page clipping */
+  html, 
+  body, 
+  #root, 
+  div[class*="min-h-screen"],
+  div[class*="overflow-y-auto"],
+  main,
+  div.grid {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: visible !important;
+    display: block !important;
+    position: static !important;
+    float: none !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+    box-shadow: none !important;
+  }
+
+  /* 2. Hide surrounding application shell components universally */
+  header, 
+  footer, 
+  aside, 
+  nav,
+  button,
+  form,
+  #btn-mobile-sidebar-toggle,
+  .print-hidden, 
+  .print\:hidden {
+    display: none !important;
+  }
+
+  /* 3. Ensure target cards flow naturally for printing and support multi-page pagination */
+  #printable-report-card,
+  #ai-summary-card {
+    display: block !important;
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 8px !important;
+    padding: 24px !important;
+    box-shadow: none !important;
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    color: #0f172a !important;
+    page-break-inside: avoid;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* 4. Formatting page limits for standard portrait paper */
+  @page {
+    size: A4 portrait;
+    margin: 15mm;
+  }
+}
