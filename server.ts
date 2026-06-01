@@ -38,12 +38,11 @@ if (geminiApiKey) {
   console.log("No GEMINI_API_KEY detected. System operations will use rules-based fallback generators.");
 }
 
-async function startServer() {
-  // Pull latest remote state from Supabase on launch
-  await pullFromSupabase();
+// Pull latest remote state from Supabase on launch
+await pullFromSupabase();
 
-  const app = express();
-  app.use(express.json());
+export const app = express();
+app.use(express.json());
 
   // Logging Middleware (Basic)
   app.use((req, res, next) => {
@@ -1104,10 +1103,11 @@ Provide an ultra-focused, bullet-point analysis of live operations (Max 4 points
     });
   }
 
-  app.listen(port, '0.0.0.0', () => {
-    console.log(`YSJ Broiler Farm backend listening on http://0.0.0.0:${port}`);
-  });
-}
+  if (!process.env.VERCEL) {
+    app.listen(port, '0.0.0.0', () => {
+      console.log(`YSJ Broiler Farm backend listening on http://0.0.0.0:${port}`);
+    });
+  }
 
 // Automatic scanning logic on module compile to sync any completed Sunday milestones
 function autoRunWeeklyAnalysis() {
@@ -1136,5 +1136,3 @@ function getLocalFallbackSummary(start: string, end: string, mortality: number, 
   const isProfitable = profit >= 0;
   return `Automated Farm Report for period ${start} to ${end}. The broiler cycle remains active. Under standard metrics, a total mortality of ${mortality} birds was tracked. Total feed intake reached ${feed} bags. Financial analysis yields a net operational profit/loss margin of $${profit.toFixed(2)}. Recommendations: Maintain rigorous biocontrol water purification and ventilation cycles to minimize feed conversion rates (FCR). Ensure adequate ventilation is activated during mid-day high heat indices.`;
 }
-
-startServer();

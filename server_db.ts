@@ -9,7 +9,9 @@ import { createClient } from '@supabase/supabase-js';
 import { Profile, DailyReport, FeedStockItem, Comment, WeeklyReport, Notification, AuditLog, UserRole } from './src/types.js';
 
 // Filepath for JSON Database
-const DB_FILE = path.join(process.cwd(), 'data', 'db.json');
+const DB_FILE = process.env.VERCEL
+  ? path.join('/tmp', 'db.json')
+  : path.join(process.cwd(), 'data', 'db.json');
 
 // Interface for DB Structure
 export interface DbSchema {
